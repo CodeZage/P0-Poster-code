@@ -160,7 +160,7 @@ void mouseClicked() {
        mouseY > subjectStart + (i * subjectSizeY) && 
        mouseY < subjectStart + ((i + 1) * subjectSizeY) && 
        !chosenSubjectLeft[i] &&
-       dist(width/2, subjectStart + (subjectAmount* subjectSizeY),mouseX,mouseY) < navButtonWidth/2) {
+       dist(width/2, subjectStart + (subjectAmount* subjectSizeY),mouseX,mouseY) > navButtonWidth/2) {
          
          //resets the chosensubject
          Reset(chosenSubjectLeft);
@@ -176,7 +176,7 @@ void mouseClicked() {
        mouseY > subjectStart + (i * subjectSizeY) && 
        mouseY < subjectStart + ((i + 1) * subjectSizeY) && 
        !chosenSubjectRight[i] &&
-       dist(width/2, subjectStart + (subjectAmount* subjectSizeY),mouseX,mouseY) < navButtonWidth/2) {
+       dist(width/2, subjectStart + (subjectAmount* subjectSizeY),mouseX,mouseY) > navButtonWidth/2) {
          
          //resets the chosensubject
          Reset(chosenSubjectLeft);
