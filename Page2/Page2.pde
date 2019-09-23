@@ -1,4 +1,5 @@
 int[] size;
+int 
 boolean subjectChosen = false;
 char subject;
 boolean[] chosenSubjectLeft;
@@ -13,13 +14,12 @@ int textDropDown = 0;
 int textDropDownStart = -100;
 int textEnd = 210;
 int dropDownSpeed = 10;
+
 //style
 color highlight = (#E548E5);
 color loadingColor = 255;
 
 //Navigation button 
-//int navButtonX = 300;
-//int navButtonY = 700;
 int navButtonWidth = 75;
 int navButtonHeight = 75;
 
@@ -95,7 +95,6 @@ void subjects() {
           fill(0);
           textSize(50);
           text(subjectTexts[i + subjectAmount],10,textDropDown, width-20,subjectStart - textDropDownStart);
-          text(subjectTexts[i + subjectAmount], 100,100);
           pop();
           textDropDown += dropDownSpeed;
         } else {
@@ -104,7 +103,6 @@ void subjects() {
           fill(0);
           textSize(50);
           text(subjectTexts[i + subjectAmount],10,textDropDown, width-20,subjectStart - textDropDownStart);
-          text(subjectTexts[i + subjectAmount], 100,100);
           pop();
         }
         rect(0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));
