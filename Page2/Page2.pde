@@ -1,5 +1,6 @@
-int[] size;
 int pageNumber = 0;
+
+//subjects
 boolean subjectChosen = false;
 char subject;
 boolean[] chosenSubjectLeft;
@@ -9,6 +10,8 @@ int sizeChanger = 0;
 int subjectStart = 210;
 int subjectSizeY = 150;
 int sizeChangerSpeed = 15;
+
+//TextBox and Text
 String[] subjectTexts;
 int textDropDown = 0;
 int textDropDownStart = -240;
@@ -19,10 +22,6 @@ int dropDownSpeed = 10;
 color highlight = (#E548E5);
 color loadingColor = 255;
 
-//Navigation button 
-int navButtonWidth = 75;
-int navButtonHeight = 75;
-
 // loading button / arc
 float radiant = 0;
 int time;
@@ -31,12 +30,24 @@ int loadingButtonHeight = 55;
 int loadingStoke = 5;
 int holdDownTime = 30;
 
+//Style 
+int highlightWeight = 5;
+int backgroundCol = (#FFFDF5);
+int widthStart = 0;
+
+//Navigation button 
+int navButtonY = 50;
+int navButtonRadius = 75;
+
+//Checks 
+boolean navButtonClicked = false; 
+boolean navThreshold = true;
+
 void setup() {
  size(600, 849);
  frameRate(60);
  smooth(8);                     //sets anti-aliasing level to 8
  subjectTexts = loadStrings("text.txt");
- size = new int[100];
  chosenSubjectLeft = new boolean[subjectAmount];
  chosenSubjectRight = new boolean[subjectAmount];
 }
@@ -46,7 +57,24 @@ void draw() {
   switch (pageNumber) {
     case 0 :
       background(155);
-      reloadButton();
+      stroke (highlight);
+      fill (highlight);
+      strokeWeight (highlightWeight);
+      line (widthStart, navButtonY, width, navButtonY);
+      circle (width, navButtonY, navButtonRadius);
+  
+      if (navThreshold == false && navButtonY >= 120){
+        navButtonY -= 30;
+      }
+      if (navThreshold == false && navButtonY >= 100){
+        navButtonY -= 20;  
+      } 
+      if (navThreshold == false && navButtonY >= 80){
+        navButtonY -= 10;
+      }
+      else {
+        navThreshold = true; 
+      }
       Reset(chosenSubjectLeft);
       Reset(chosenSubjectRight);
       subjectChosen = false;
@@ -162,7 +190,7 @@ void mouseClicked() {
        mouseY > subjectStart + (i * subjectSizeY) && 
        mouseY < subjectStart + ((i + 1) * subjectSizeY) && 
        !chosenSubjectLeft[i] &&
-       dist(width/2, subjectStart + (subjectAmount* subjectSizeY),mouseX,mouseY) > navButtonWidth/2) {
+       dist(width/2, subjectStart + (subjectAmount* subjectSizeY),mouseX,mouseY) > navButtonRadius/2) {
          
          //resets the chosensubject
          Reset(chosenSubjectLeft);
@@ -178,7 +206,7 @@ void mouseClicked() {
        mouseY > subjectStart + (i * subjectSizeY) && 
        mouseY < subjectStart + ((i + 1) * subjectSizeY) && 
        !chosenSubjectRight[i] &&
-       dist(width/2, subjectStart + (subjectAmount* subjectSizeY),mouseX,mouseY) > navButtonWidth/2) {
+       dist(width/2, subjectStart + (subjectAmount* subjectSizeY),mouseX,mouseY) > navButtonRadius/2) {
          
          //resets the chosensubject
          Reset(chosenSubjectLeft);
@@ -203,10 +231,10 @@ void reloadButton() {
   push();
   fill(highlight);
   noStroke();
-  ellipse (width/2, subjectStart + (subjectAmount* subjectSizeY), navButtonWidth, navButtonHeight);
+  circle (width/2, subjectStart + (subjectAmount* subjectSizeY), navButtonRadius);
   
   // if mousex and mousey is equal to button coordinates and mouse is pressed the animation starts with time + 1 
-  if (dist(width/2, subjectStart + (subjectAmount* subjectSizeY),mouseX,mouseY)<navButtonWidth/2 && mousePressed==true)
+  if (dist(width/2, subjectStart + (subjectAmount* subjectSizeY),mouseX,mouseY)<navButtonRadius/2 && mousePressed==true)
   {
     time += 1;
     
@@ -241,6 +269,28 @@ void mouseReleased() {
   }
   time = 0;
   radiant = radians(0);
+  if(pageNumber == 0) {
+      navButtonClicked = false;
+  
+    if (navButtonY < 1100){
+      navThreshold = false;
+    }
+  }
+}
+
+void mouseDragged(){
+  if (pageNumber == 0) {
+    
+    if (mouseX > width - navButtonRadius /2 && 
+        mouseX < width + navButtonRadius /2 && 
+        mouseY < navButtonY + navButtonHeight /2 && 
+        mouseY < navButtonY + navButtonHeight /2 || 
+        navButtonClicked == true){
+      
+          navButtonClicked = true; 
+          navButtonY = mouseY;
+    } 
+  }
 }
 
 void pagethree() {
