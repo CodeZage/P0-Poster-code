@@ -102,7 +102,7 @@ void subjects() {
           pop();
           textDropDown += dropDownSpeed;
 
-          //when the textobx has dropped down to the specific point keep drawing it there
+          //when the textbox has dropped down to the specific point keep drawing it there
         } else {
           rect(0, textDropDown, width, subjectStart - textDropDownStart);
           push();
@@ -137,7 +137,7 @@ void subjects() {
           pop();
           textDropDown += dropDownSpeed;
 
-        //when the textobx has dropped down to the specific point keep drawing it there
+        //when the textbox has dropped down to the specific point keep drawing it there
         } else {
           rect(0, textDropDown, width, subjectStart - textDropDownStart);
           push();
@@ -159,7 +159,8 @@ void mouseClicked() {
     if(mouseX > 0 && mouseX < width/2 && 
        mouseY > subjectStart + (i * subjectSizeY) && 
        mouseY < subjectStart + ((i + 1) * subjectSizeY) && 
-       !chosenSubjectLeft[i]) {
+       !chosenSubjectLeft[i] &&
+       dist(width/2, subjectStart + (subjectAmount* subjectSizeY),mouseX,mouseY) < navButtonWidth/2) {
          
          //resets the chosensubject
          Reset(chosenSubjectLeft);
@@ -174,7 +175,8 @@ void mouseClicked() {
        mouseX < width && 
        mouseY > subjectStart + (i * subjectSizeY) && 
        mouseY < subjectStart + ((i + 1) * subjectSizeY) && 
-       !chosenSubjectRight[i]) {
+       !chosenSubjectRight[i] &&
+       dist(width/2, subjectStart + (subjectAmount* subjectSizeY),mouseX,mouseY) < navButtonWidth/2) {
          
          //resets the chosensubject
          Reset(chosenSubjectLeft);
