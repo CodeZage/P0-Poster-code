@@ -29,6 +29,7 @@ int time;
 int loadingButtonWidth = 55;
 int loadingButtonHeight = 55;
 int loadingStoke = 5;
+int holdDownTime = 30;
 
 
 void setup() {
@@ -206,7 +207,7 @@ void reloadButton() {
   // if mousex and mousey is equal to button coordinates and mouse is pressed the animation starts with time + 1 
   if (dist(width/2, subjectStart + (subjectAmount* subjectSizeY),mouseX,mouseY)<navButtonWidth/2 && mousePressed==true)
   {
-    time=+1;
+    time += 1;
     
     // this is the drawing and arc
     noFill();
@@ -215,19 +216,9 @@ void reloadButton() {
     arc(width/2, subjectStart + (subjectAmount* subjectSizeY), loadingButtonWidth, loadingButtonHeight, 0, radiant);
     
     // animation starts here
-    if(time>0 && time<40)
+    if(time>0)
       {
-      radiant=radiant+QUARTER_PI;
-      }
-    
-    if(time>40 && time<80)
-      {
-      radiant=radiant+HALF_PI;
-      }
-    
-    if(time>80 && time<120)
-      {
-      radiant=radiant+HALF_PI+QUARTER_PI;
+      radiant += TWO_PI/holdDownTime;
       }
   }
   pop();
@@ -235,7 +226,8 @@ void reloadButton() {
 
 // her siger vi at time skal være 0 og radians er 0 grader når vi slipper, så den starter forfra
 void mouseReleased() {
-  if (time == 1) {
+  println("time: "+time);
+  if (time > holdDownTime) {
     time = 0;
     switch (pageNumber) {
       case 0 :
@@ -248,5 +240,4 @@ void mouseReleased() {
   }
   time = 0;
   radiant = radians(0);
-  println("time: "+time);
 }
