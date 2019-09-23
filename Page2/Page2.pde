@@ -11,7 +11,7 @@ int subjectSizeY = 150;
 int sizeChangerSpeed = 15;
 String[] subjectTexts;
 int textDropDown = 0;
-int textDropDownStart = -100;
+int textDropDownStart = -240;
 int textEnd = 210;
 int dropDownSpeed = 10;
 
@@ -31,7 +31,6 @@ int loadingButtonHeight = 55;
 int loadingStoke = 5;
 int holdDownTime = 30;
 
-
 void setup() {
  size(600, 849);
  frameRate(60);
@@ -44,27 +43,27 @@ void setup() {
 
 //draw Step
 void draw() {
-switch (pageNumber) {
-  case 0 :
-    background(155);
-    reloadButton();
-    Reset(chosenSubjectLeft);
-    Reset(chosenSubjectRight);
-    subjectChosen = false;
-    break;	
-  case 1 :
-    background(155);
-    subjects();
-    reloadButton();
-    break;
-  case 2 :
-    background(155);
-    reloadButton();
-    Reset(chosenSubjectLeft);
-    Reset(chosenSubjectRight);
-    subjectChosen = false;
-    break;		
-}
+  switch (pageNumber) {
+    case 0 :
+      background(155);
+      reloadButton();
+      Reset(chosenSubjectLeft);
+      Reset(chosenSubjectRight);
+      subjectChosen = false;
+      break;	
+    case 1 :
+      background(155);
+      subjects();
+      reloadButton();
+      break;
+    case 2 :
+      background(155);
+      reloadButton();
+      Reset(chosenSubjectLeft);
+      Reset(chosenSubjectRight);
+      subjectChosen = false;
+      break;		
+  }
 }
 
 void subjects() {
@@ -112,6 +111,7 @@ void subjects() {
           text(subjectTexts[i],10,textDropDown, width-20,subjectStart - textDropDownStart);
           text(subjectTexts[i], 100,100);
           pop();
+          pageNumber = 2;
         }
 
         //Draws the subject in the top
@@ -146,6 +146,7 @@ void subjects() {
           textSize(50);
           text(subjectTexts[i + subjectAmount],10,textDropDown, width-20,subjectStart - textDropDownStart);
           pop();
+          pageNumber = 2;
         }
 
         //Draws the subject in the top
@@ -240,4 +241,11 @@ void mouseReleased() {
   }
   time = 0;
   radiant = radians(0);
+}
+
+void pagethree() {
+  
+
+
+
 }
