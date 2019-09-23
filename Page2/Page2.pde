@@ -1,5 +1,5 @@
 int[] size;
-int 
+int pageNumber = 0;
 boolean subjectChosen = false;
 char subject;
 boolean[] chosenSubjectLeft;
@@ -26,15 +26,13 @@ int navButtonHeight = 75;
 // loading button / arc
 float radiant = 0;
 int time;
-//int loadingButtonX = navButtonX;
-//int loadingButtonY = navButtonY;
 int loadingButtonWidth = 55;
 int loadingButtonHeight = 55;
 int loadingStoke = 5;
 
 
 void setup() {
- size(600, 849);               //sets size to A7 equivalent 
+ size(600, 849);
  frameRate(60);
  smooth(8);                     //sets anti-aliasing level to 8
  subjectTexts = loadStrings("text.txt");
@@ -45,27 +43,50 @@ void setup() {
 
 //draw Step
 void draw() {
-  background(155);
-  subjects();
-  reloadButton();
+switch (pageNumber) {
+  case 0 :
+    background(155);
+    reloadButton(1);
+    break;	
+  case 1 :
+    background(155);
+    subjects();
+    reloadButton(0);
+    break;
+  case 2 :
+    background(155);
+    reloadButton(1);
+    break;		
+}
 }
 
 void subjects() {
+    //Draws the boxes on the left side
     for (int i = 0; i < subjectAmount; i++) {
       if (!chosenSubjectLeft[i]) {
       rect(0,subjectStart + (i * subjectSizeY),width/2,subjectSizeY);
       }
     }
+
+    //Draws the boxes on the right side
     for (int i = 0; i < subjectAmount; i++) {
       if (!chosenSubjectRight[i]) {
       rect(width/2, subjectStart + (i* subjectSizeY),width/2,subjectSizeY);
       }
     }
+
+    //Draws the chosen box if the chosen box is on the left side
     for (int i = 0; i < subjectAmount; i++) {
-       if (chosenSubjectLeft[i] && sizeChanger < sizeChangerSpeed){
+
+      //Scales and move the chosen box to the top and fit the screens width
+      if (chosenSubjectLeft[i] && sizeChanger < sizeChangerSpeed){
         rect(0, (subjectStart + (i * subjectSizeY)) - map(sizeChanger, 0, sizeChangerSpeed, 0, (subjectStart + (i * subjectSizeY))), map(sizeChanger, 0, sizeChangerSpeed, width / 2, width), map(sizeChanger, 0, sizeChangerSpeed, subjectSizeY, subjectStart));
         sizeChanger++;
+
+      //when the box is in the top
       } else if (chosenSubjectLeft[i] && sizeChanger == sizeChangerSpeed) {
+
+        //begins to animate the textbox to dropdown
         if ( textDropDown < textEnd) {
           rect(0, textDropDown, width, subjectStart - textDropDownStart);
           push();
@@ -74,6 +95,8 @@ void subjects() {
           text(subjectTexts[i],10,textDropDown, width-20,subjectStart - textDropDownStart);
           pop();
           textDropDown += dropDownSpeed;
+
+          //when the textobx has dropped down to the specific point keep drawing it there
         } else {
           rect(0, textDropDown, width, subjectStart - textDropDownStart);
           push();
@@ -83,12 +106,22 @@ void subjects() {
           text(subjectTexts[i], 100,100);
           pop();
         }
+
+        //Draws the subject in the top
         rect(0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));
       }
+
+      //Draws the chosen box if the chosen box is on the left side
       if (chosenSubjectRight[i] && sizeChanger < sizeChangerSpeed){
+
+        //Scales and move the chosen box to the top and fit the screens width
         rect(width/2 - map(sizeChanger, 0, sizeChangerSpeed, 0, width/2), (subjectStart + (i * subjectSizeY)) - map(sizeChanger, 0, sizeChangerSpeed, 0, (subjectStart + (i * subjectSizeY))), map(sizeChanger, 0, sizeChangerSpeed, width / 2, width), map(sizeChanger, 0, sizeChangerSpeed, subjectSizeY, subjectStart));
         sizeChanger++;
+
+      //when the box is in the top
       } else if (chosenSubjectRight[i] && sizeChanger == sizeChangerSpeed) {
+
+        //begins to animate the textbox to dropdown
         if ( textDropDown < textEnd) {
           rect(0, textDropDown, width, subjectStart - textDropDownStart);
           push();
@@ -97,6 +130,8 @@ void subjects() {
           text(subjectTexts[i + subjectAmount],10,textDropDown, width-20,subjectStart - textDropDownStart);
           pop();
           textDropDown += dropDownSpeed;
+
+        //when the textobx has dropped down to the specific point keep drawing it there
         } else {
           rect(0, textDropDown, width, subjectStart - textDropDownStart);
           push();
@@ -105,6 +140,8 @@ void subjects() {
           text(subjectTexts[i + subjectAmount],10,textDropDown, width-20,subjectStart - textDropDownStart);
           pop();
         }
+
+        //Draws the subject in the top
         rect(0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));
       }
     }
@@ -152,7 +189,7 @@ void Reset(boolean[] d) {
 }
 
 //GoBack button
-void reloadButton() {
+void reloadButton(int Page) {
   push();
   fill(highlight);
   noStroke();
@@ -183,6 +220,7 @@ void reloadButton() {
     if(time>80 && time<120)
       {
       radiant=radiant+HALF_PI+QUARTER_PI;
+      pageNumber = Page;
       }
   }
   pop();
