@@ -61,7 +61,7 @@ void draw() {
       fill (highlight);
       strokeWeight (highlightWeight);
       line (widthStart, navButtonY, width, navButtonY);
-      circle (width, navButtonY, navButtonRadius);
+      circle (width/2, navButtonY, navButtonRadius);
   
       if (navThreshold == false && navButtonY >= 120){
         navButtonY -= 30;
@@ -283,8 +283,8 @@ void mouseDragged(){
     
     if (mouseX > width - navButtonRadius /2 && 
         mouseX < width + navButtonRadius /2 && 
-        mouseY < navButtonY + navButtonHeight /2 && 
-        mouseY < navButtonY + navButtonHeight /2 || 
+        mouseY < navButtonY + navButtonRadius /2 && 
+        mouseY < navButtonY + navButtonRadius /2 || 
         navButtonClicked == true){
       
           navButtonClicked = true; 
