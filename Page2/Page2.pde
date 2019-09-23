@@ -57,22 +57,21 @@ void draw() {
   switch (pageNumber) {
     case 0 :
       background(155);
+      push();
       stroke (highlight);
       fill (highlight);
       strokeWeight (highlightWeight);
       line (widthStart, navButtonY, width, navButtonY);
       circle (width/2, navButtonY, navButtonRadius);
+      pop();
   
       if (navThreshold == false && navButtonY >= 120){
         navButtonY -= 30;
-      }
-      if (navThreshold == false && navButtonY >= 100){
+      } else if (navThreshold == false && navButtonY >= 100){
         navButtonY -= 20;  
-      } 
-      if (navThreshold == false && navButtonY >= 80){
+      } else if (navThreshold == false && navButtonY >= 80){
         navButtonY -= 10;
-      }
-      else {
+      } else {
         navThreshold = true; 
       }
       Reset(chosenSubjectLeft);
@@ -83,6 +82,7 @@ void draw() {
       background(155);
       subjects();
       reloadButton();
+      navThreshold = false;
       break;
     case 2 :
       background(155);
@@ -272,8 +272,11 @@ void mouseReleased() {
   if(pageNumber == 0) {
       navButtonClicked = false;
   
-    if (navButtonY < 1100){
+    if (navButtonY < subjectStart + ((subjectAmount-1)* subjectSizeY)){
       navThreshold = false;
+    } else {
+      navButtonY = subjectStart + ((subjectAmount-1)* subjectSizeY)-1;
+      pageNumber +=1;
     }
   }
 }
@@ -281,14 +284,13 @@ void mouseReleased() {
 void mouseDragged(){
   if (pageNumber == 0) {
     
-    if (mouseX > width - navButtonRadius /2 && 
-        mouseX < width + navButtonRadius /2 && 
+    if (mouseX > width/2 - navButtonRadius /2 && 
+        mouseX < width/2 + navButtonRadius /2 && 
         mouseY < navButtonY + navButtonRadius /2 && 
         mouseY < navButtonY + navButtonRadius /2 || 
         navButtonClicked == true){
-      
-          navButtonClicked = true; 
-          navButtonY = mouseY;
+        navButtonClicked = true; 
+        navButtonY = mouseY;
     } 
   }
 }
