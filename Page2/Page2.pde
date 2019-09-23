@@ -46,16 +46,22 @@ void draw() {
 switch (pageNumber) {
   case 0 :
     background(155);
-    reloadButton(1);
+    reloadButton();
+    Reset(chosenSubjectLeft);
+    Reset(chosenSubjectRight);
+    subjectChosen = false;
     break;	
   case 1 :
     background(155);
     subjects();
-    reloadButton(0);
+    reloadButton();
     break;
   case 2 :
     background(155);
-    reloadButton(1);
+    reloadButton();
+    Reset(chosenSubjectLeft);
+    Reset(chosenSubjectRight);
+    subjectChosen = false;
     break;		
 }
 }
@@ -189,7 +195,7 @@ void Reset(boolean[] d) {
 }
 
 //GoBack button
-void reloadButton(int Page) {
+void reloadButton() {
   push();
   fill(highlight);
   noStroke();
@@ -220,13 +226,25 @@ void reloadButton(int Page) {
     if(time>80 && time<120)
       {
       radiant=radiant+HALF_PI+QUARTER_PI;
-      pageNumber = Page;
       }
   }
   pop();
 }
+
 // her siger vi at time skal være 0 og radians er 0 grader når vi slipper, så den starter forfra
 void mouseReleased() {
+  if (time == 1) {
+    time = 0;
+    switch (pageNumber) {
+      case 0 :
+        pageNumber = 1;
+      break;
+      default :
+        pageNumber -= 1;
+      break;	
+    }
+  }
   time = 0;
   radiant = radians(0);
+  println("time: "+time);
 }
