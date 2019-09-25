@@ -5,6 +5,7 @@ boolean subjectChosen = false;
 char subject;
 boolean[] chosenSubjectLeft;
 boolean[] chosenSubjectRight;
+PImage[] subjectPictures;
 int subjectAmount = 3;
 int sizeChanger = 0;
 int subjectStart = 210;
@@ -50,6 +51,10 @@ void setup() {
  subjectTexts = loadStrings("text.txt");
  chosenSubjectLeft = new boolean[subjectAmount];
  chosenSubjectRight = new boolean[subjectAmount];
+ subjectPictures = new PImage[subjectAmount * 2];
+ for(int i = 0;i < 2 * subjectAmount; i++) {
+   subjectPictures[i] = loadImage("Subject" + i + ".png");
+ }
 }
 
 //draw Step
@@ -57,6 +62,7 @@ void draw() {
   switch (pageNumber) {
     case 0 :
       background(155);
+      subjectBoxes();
       push();
       stroke (highlight);
       fill (highlight);
@@ -86,35 +92,53 @@ void draw() {
       break;
     case 2 :
       background(155);
+      pagethree();
       reloadButton();
-      Reset(chosenSubjectLeft);
-      Reset(chosenSubjectRight);
       subjectChosen = false;
       break;		
   }
 }
+void subjectBoxes() {
+      //Draws the boxes on the left side
+    if (pageNumber == 1) {
+      for (int i = 0; i < subjectAmount; i++) {
+        if (!chosenSubjectLeft[i]) {
+        image(subjectPictures[i], 0, subjectStart + (i * subjectSizeY),width/2,subjectSizeY);
+        }
+      }
 
+      //Draws the boxes on the right side
+      for (int i = 0; i < subjectAmount; i++) {
+        if (!chosenSubjectRight[i]) {
+        image(subjectPictures[i + subjectAmount],width/2, subjectStart + (i * subjectSizeY),width/2,subjectSizeY);
+        }
+      }
+
+    } else if(pageNumber == 0) {
+      //Draws the boxes on the left side and make them follow the dragging motion
+      for (int i = 0; i < subjectAmount; i++) {
+        if (!chosenSubjectLeft[i]) {
+        image(subjectPictures[i],0,navButtonY - ((subjectAmount-i) * subjectSizeY),width/2,subjectSizeY);
+        }
+      }
+
+      //Draws the boxes on the right side and make them follow the dragging motion
+      for (int i = 0; i < subjectAmount; i++) {
+        if (!chosenSubjectRight[i]) {
+        image(subjectPictures[i + subjectAmount], width/2, navButtonY - ((subjectAmount-i)* subjectSizeY),width/2,subjectSizeY);
+        }
+      }
+    }
+
+}
 void subjects() {
-    //Draws the boxes on the left side
-    for (int i = 0; i < subjectAmount; i++) {
-      if (!chosenSubjectLeft[i]) {
-      rect(0,subjectStart + (i * subjectSizeY),width/2,subjectSizeY);
-      }
-    }
-
-    //Draws the boxes on the right side
-    for (int i = 0; i < subjectAmount; i++) {
-      if (!chosenSubjectRight[i]) {
-      rect(width/2, subjectStart + (i* subjectSizeY),width/2,subjectSizeY);
-      }
-    }
-
+    subjectBoxes();
     //Draws the chosen box if the chosen box is on the left side
     for (int i = 0; i < subjectAmount; i++) {
 
       //Scales and move the chosen box to the top and fit the screens width
       if (chosenSubjectLeft[i] && sizeChanger < sizeChangerSpeed){
-        rect(0, (subjectStart + (i * subjectSizeY)) - map(sizeChanger, 0, sizeChangerSpeed, 0, (subjectStart + (i * subjectSizeY))), map(sizeChanger, 0, sizeChangerSpeed, width / 2, width), map(sizeChanger, 0, sizeChangerSpeed, subjectSizeY, subjectStart));
+        image(subjectPictures[i], 0, (subjectStart + (i * subjectSizeY)) - map(sizeChanger, 0, sizeChangerSpeed, 0, (subjectStart + (i * subjectSizeY))), map(sizeChanger, 0, sizeChangerSpeed, width / 2, width), map(sizeChanger, 0, sizeChangerSpeed, subjectSizeY, subjectStart));
         sizeChanger++;
 
       //when the box is in the top
@@ -143,14 +167,14 @@ void subjects() {
         }
 
         //Draws the subject in the top
-        rect(0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));
+        image(subjectPictures[i], 0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));
       }
 
       //Draws the chosen box if the chosen box is on the left side
       if (chosenSubjectRight[i] && sizeChanger < sizeChangerSpeed){
 
         //Scales and move the chosen box to the top and fit the screens width
-        rect(width/2 - map(sizeChanger, 0, sizeChangerSpeed, 0, width/2), (subjectStart + (i * subjectSizeY)) - map(sizeChanger, 0, sizeChangerSpeed, 0, (subjectStart + (i * subjectSizeY))), map(sizeChanger, 0, sizeChangerSpeed, width / 2, width), map(sizeChanger, 0, sizeChangerSpeed, subjectSizeY, subjectStart));
+        image(subjectPictures[i + subjectAmount], width/2 - map(sizeChanger, 0, sizeChangerSpeed, 0, width/2), (subjectStart + (i * subjectSizeY)) - map(sizeChanger, 0, sizeChangerSpeed, 0, (subjectStart + (i * subjectSizeY))), map(sizeChanger, 0, sizeChangerSpeed, width / 2, width), map(sizeChanger, 0, sizeChangerSpeed, subjectSizeY, subjectStart));
         sizeChanger++;
 
       //when the box is in the top
@@ -178,43 +202,45 @@ void subjects() {
         }
 
         //Draws the subject in the top
-        rect(0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));
+        image(subjectPictures[i + subjectAmount], 0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));
       }
     }
 }
 
 void mouseClicked() {
-  for(int i = 0; i < subjectAmount; i++) { // for each row of subjects
-    //Checks if the mouse is inside the the subject on the left side
-    if(mouseX > 0 && mouseX < width/2 && 
-       mouseY > subjectStart + (i * subjectSizeY) && 
-       mouseY < subjectStart + ((i + 1) * subjectSizeY) && 
-       !chosenSubjectLeft[i] &&
-       dist(width/2, subjectStart + (subjectAmount* subjectSizeY),mouseX,mouseY) > navButtonRadius/2) {
-         
-         //resets the chosensubject
-         Reset(chosenSubjectLeft);
-         Reset(chosenSubjectRight);
-         chosenSubjectLeft[i] = true;
-         subjectChosen = true;
-         textDropDown = textDropDownStart;
-         sizeChanger = 0;
-    }
-    //Checks if the mouse is inside the the subject on the right side
-    if(mouseX > width/2 && 
-       mouseX < width && 
-       mouseY > subjectStart + (i * subjectSizeY) && 
-       mouseY < subjectStart + ((i + 1) * subjectSizeY) && 
-       !chosenSubjectRight[i] &&
-       dist(width/2, subjectStart + (subjectAmount* subjectSizeY),mouseX,mouseY) > navButtonRadius/2) {
-         
-         //resets the chosensubject
-         Reset(chosenSubjectLeft);
-         Reset(chosenSubjectRight);
-         chosenSubjectRight[i] = true;
-         subjectChosen = true;
-         textDropDown = textDropDownStart;
-         sizeChanger = 0;
+  if(pageNumber == 1 ){
+    for(int i = 0; i < subjectAmount; i++) { // for each row of subjects
+      //Checks if the mouse is inside the the subject on the left side
+      if(mouseX > 0 && mouseX < width/2 && 
+        mouseY > subjectStart + (i * subjectSizeY) && 
+        mouseY < subjectStart + ((i + 1) * subjectSizeY) && 
+        !chosenSubjectLeft[i] &&
+        dist(width/2, subjectStart + (subjectAmount* subjectSizeY),mouseX,mouseY) > navButtonRadius/2) {
+          
+          //resets the chosensubject
+          Reset(chosenSubjectLeft);
+          Reset(chosenSubjectRight);
+          chosenSubjectLeft[i] = true;
+          subjectChosen = true;
+          textDropDown = textDropDownStart;
+          sizeChanger = 0;
+      }
+      //Checks if the mouse is inside the the subject on the right side
+      if(mouseX > width/2 && 
+        mouseX < width && 
+        mouseY > subjectStart + (i * subjectSizeY) && 
+        mouseY < subjectStart + ((i + 1) * subjectSizeY) && 
+        !chosenSubjectRight[i] &&
+        dist(width/2, subjectStart + (subjectAmount* subjectSizeY),mouseX,mouseY) > navButtonRadius/2) {
+          
+          //resets the chosensubject
+          Reset(chosenSubjectLeft);
+          Reset(chosenSubjectRight);
+          chosenSubjectRight[i] = true;
+          subjectChosen = true;
+          textDropDown = textDropDownStart;
+          sizeChanger = 0;
+      }
     }
   }
 }
@@ -255,30 +281,34 @@ void reloadButton() {
 
 // her siger vi at time skal være 0 og radians er 0 grader når vi slipper, så den starter forfra
 void mouseReleased() {
-  println("time: "+time);
+  radiant = radians(0);
+  if(pageNumber == 0) {
+      navButtonClicked = false;
+    if (navButtonY < subjectStart + ((subjectAmount-2) + subjectSizeY)){
+      navThreshold = false;
+    } else {
+      navButtonY = subjectStart + ((subjectAmount-1)* subjectSizeY);
+      pageNumber +=1;
+    }
+  }
   if (time > holdDownTime) {
-    time = 0;
     switch (pageNumber) {
       case 0 :
         pageNumber = 1;
+        Reset(chosenSubjectLeft);
+        Reset(chosenSubjectRight);
+        println("pageNumber: "+pageNumber);
       break;
       default :
-        pageNumber -= 1;
+        navThreshold = false;
+        pageNumber = pageNumber - 1;
+        Reset(chosenSubjectLeft);
+        Reset(chosenSubjectRight);
+        println("pageNumber: "+pageNumber);
       break;	
     }
   }
   time = 0;
-  radiant = radians(0);
-  if(pageNumber == 0) {
-      navButtonClicked = false;
-  
-    if (navButtonY < subjectStart + ((subjectAmount-1)* subjectSizeY)){
-      navThreshold = false;
-    } else {
-      navButtonY = subjectStart + ((subjectAmount-1)* subjectSizeY)-1;
-      pageNumber +=1;
-    }
-  }
 }
 
 void mouseDragged(){
@@ -296,8 +326,22 @@ void mouseDragged(){
 }
 
 void pagethree() {
-  
-
-
-
+  rect(0, textDropDown, width, subjectStart - textDropDownStart);
+  for(int i = 0; i < subjectAmount; i++){
+    if(chosenSubjectLeft[i] == true) {
+      push();
+      fill(0);
+      textSize(50);
+      text(subjectTexts[i],10,textDropDown, width-20,subjectStart - textDropDownStart);
+      pop();
+      image(subjectPictures[i], 0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));
+    } else if (chosenSubjectRight[i] == true) {
+      push();
+      fill(0);
+      textSize(50);
+      text(subjectTexts[i + subjectAmount],10,textDropDown, width-20,subjectStart - textDropDownStart);
+      pop();
+      image(subjectPictures[i + subjectAmount], 0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));
+    }  
+  }
 }
