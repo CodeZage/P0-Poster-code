@@ -26,7 +26,6 @@ float arrowratio = 1.7;
         int sizeChangerSpeed = 15;
 
 //TextBox and Text
-String[] subjectTexts;
 int fontSize = 24;
 PImage[] textImages;
 int textDropDown = 0;
@@ -38,6 +37,7 @@ color highlight = (#ac0a56);
 color loadingColor = 255;
 color background = (#efebe2);
 PImage frontPage;
+PImage medialogiLogo;
 
 // loading button / arc
 float radiant = 0;
