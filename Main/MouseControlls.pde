@@ -11,6 +11,7 @@ void mouseDragged(){
         navButtonClicked == true) &&
         mouseY <= subjectStart + (subjectAmount* subjectSizeY)){
         navButtonClicked = true; 
+        drawArrow = false;
         navButtonY = mouseY;
     } 
   }

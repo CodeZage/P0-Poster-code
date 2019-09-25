@@ -49,11 +49,13 @@ void dragMenu() {
     navButtonY -= 10;
   } else {
     navThreshold = true; 
+    drawArrow = true;
   }
 }
 
 void subjectResetter() {
-  if (resizeSubject) {
+  if (resizeSubject == true) {
+    background(background);
     println("sizeChanger: "+sizeChanger);
     for (int i = 0; i < subjectAmount; i++) {
     subjectBoxes();

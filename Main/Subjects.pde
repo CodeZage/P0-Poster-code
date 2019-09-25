@@ -52,8 +52,8 @@ void subjects() {
           rect(0, textDropDown, width, subjectStart - textDropDownStart);
           push();
           fill(0);
-          textSize(50);
-          text(subjectTexts[i],10,textDropDown, width-20,subjectStart - textDropDownStart);
+          textSize(fontSize);
+          image(textImages[i],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown), 0, 0, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
           pop();
           textDropDown += dropDownSpeed;
 
@@ -62,9 +62,8 @@ void subjects() {
           rect(0, textDropDown, width, subjectStart - textDropDownStart);
           push();
           fill(0);
-          textSize(50);
-          text(subjectTexts[i],10,textDropDown, width-20,subjectStart - textDropDownStart);
-          text(subjectTexts[i], 100,100);
+          textSize(fontSize);
+          image(textImages[i],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown), 0, 0, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
           pop();
           pageNumber = 2;
         }
@@ -88,8 +87,8 @@ void subjects() {
           rect(0, textDropDown, width, subjectStart - textDropDownStart);
           push();
           fill(0);
-          textSize(50);
-          text(subjectTexts[i + subjectAmount],10,textDropDown, width-20,subjectStart - textDropDownStart);
+          textSize(fontSize);
+          image(textImages[i + subjectAmount],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown), 0, 0, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
           pop();
           textDropDown += dropDownSpeed;
 
@@ -98,8 +97,8 @@ void subjects() {
           rect(0, textDropDown, width, subjectStart - textDropDownStart);
           push();
           fill(0);
-          textSize(50);
-          text(subjectTexts[i + subjectAmount],10,textDropDown, width-20,subjectStart - textDropDownStart);
+          textSize(fontSize);
+          image(textImages[i + subjectAmount],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown), 0, 0, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
           pop();
           pageNumber = 2;
         }
@@ -116,15 +115,15 @@ void subjectPageThree() {
     if(chosenSubjectLeft[i] == true) {
       push();
       fill(0);
-      textSize(50);
-      text(subjectTexts[i],10,textDropDown, width-20,subjectStart - textDropDownStart);
+      textSize(fontSize);
+      image(textImages[i],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown), 0, 0, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
       pop();
       image(subjectPictures[i], 0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));
     } else if (chosenSubjectRight[i] == true) {
       push();
       fill(0);
-      textSize(50);
-      text(subjectTexts[i + subjectAmount],10,textDropDown, width-20,subjectStart - textDropDownStart);
+      textSize(fontSize);
+      image(textImages[i + subjectAmount],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown), 0, 0, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
       pop();
       image(subjectPictures[i + subjectAmount], 0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));
     }  

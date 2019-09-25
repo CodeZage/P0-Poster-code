@@ -4,6 +4,13 @@ This pages is for all the variables in the code
 //pageChanger
 int pageNumber = 0;
 
+//Arrow
+boolean drawArrow = true;
+PImage[] arrowArray;
+int arrowAnimationLength = 36;
+int frame = 0;
+float arrowratio = 1.7;
+
 //subjects
     boolean subjectChosen = false;
     boolean[] chosenSubjectLeft;
@@ -20,6 +27,8 @@ int pageNumber = 0;
 
 //TextBox and Text
 String[] subjectTexts;
+int fontSize = 24;
+PImage[] textImages;
 int textDropDown = 0;
 int textDropDownStart = -150;
 int dropDownSpeed = 10;
@@ -28,6 +37,7 @@ int dropDownSpeed = 10;
 color highlight = (#ac0a56);
 color loadingColor = 255;
 color background = (#efebe2);
+PImage frontPage;
 
 // loading button / arc
 float radiant = 0;
