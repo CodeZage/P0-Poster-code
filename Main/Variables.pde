@@ -1,22 +1,27 @@
+/*
+This pages is for all the variables in the code
+*/
+//pageChanger
 int pageNumber = 0;
 
 //subjects
-boolean subjectChosen = false;
-char subject;
-boolean[] chosenSubjectLeft;
-boolean[] chosenSubjectRight;
-PImage[] subjectPictures;
-int subjectAmount = 3;
-int sizeChanger = 0;
-int subjectStart = 300;
-int subjectSizeY = 150;
-int sizeChangerSpeed = 15;
+    boolean subjectChosen = false;
+    char subject;
+    boolean[] chosenSubjectLeft;
+    boolean[] chosenSubjectRight;
+    PImage[] subjectPictures;
+    int subjectAmount = 3;
+    
+    //subject Size and position
+        int sizeChanger = 0;
+        int subjectStart = 300;
+        int subjectSizeY = 150;
+        int sizeChangerSpeed = 15;
 
 //TextBox and Text
 String[] subjectTexts;
 int textDropDown = 0;
-int textDropDownStart = -240;
-int textEnd = 210;
+int textDropDownStart = -150;
 int dropDownSpeed = 10;
 
 //style

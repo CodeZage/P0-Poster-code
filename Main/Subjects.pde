@@ -45,7 +45,7 @@ void subjects() {
       } else if (chosenSubjectLeft[i] && sizeChanger == sizeChangerSpeed) {
 
         //begins to animate the textbox to dropdown
-        if ( textDropDown < textEnd) {
+        if ( textDropDown < subjectStart) {
           rect(0, textDropDown, width, subjectStart - textDropDownStart);
           push();
           fill(0);
@@ -81,7 +81,7 @@ void subjects() {
       } else if (chosenSubjectRight[i] && sizeChanger == sizeChangerSpeed) {
 
         //begins to animate the textbox to dropdown
-        if ( textDropDown < textEnd) {
+        if ( textDropDown < subjectStart) {
           rect(0, textDropDown, width, subjectStart - textDropDownStart);
           push();
           fill(0);
@@ -107,7 +107,7 @@ void subjects() {
     }
 }
 
-void subjectText() {
+void subjectPageThree() {
   rect(0, textDropDown, width, subjectStart - textDropDownStart);
   for(int i = 0; i < subjectAmount; i++){
     if(chosenSubjectLeft[i] == true) {

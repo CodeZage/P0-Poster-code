@@ -30,7 +30,7 @@ void draw() {
       break;
     case 2 :
       background(background);
-      subjectText();
+      subjectPageThree();
       reloadButton();
       subjectChosen = false;
       break;		
