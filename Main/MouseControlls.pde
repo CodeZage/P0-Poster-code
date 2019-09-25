@@ -35,12 +35,16 @@ void mouseReleased() {
         Reset(chosenSubjectLeft);
         Reset(chosenSubjectRight);
       break;
-      default :
+      case 1 :
         navThreshold = false;
         pageNumber = pageNumber - 1;
         Reset(chosenSubjectLeft);
         Reset(chosenSubjectRight);
-      break;  
+      break;  	
+      case 2:
+        resizeSubject = true;
+        break;
+        
     }
   }
   time = 0;

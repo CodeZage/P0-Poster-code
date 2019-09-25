@@ -10,6 +10,7 @@ int pageNumber = 0;
     boolean[] chosenSubjectRight;
     PImage[] subjectPictures;
     int subjectAmount = 3;
+    boolean resizeSubject = false;
     
     //subject Size and position
         int sizeChanger = 0;

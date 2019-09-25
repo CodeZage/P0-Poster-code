@@ -51,3 +51,28 @@ void dragMenu() {
     navThreshold = true; 
   }
 }
+
+void subjectResetter() {
+  if (resizeSubject) {
+    println("sizeChanger: "+sizeChanger);
+    for (int i = 0; i < subjectAmount; i++) {
+    subjectBoxes();
+      if (chosenSubjectLeft[i] && sizeChanger > 0){
+            image(subjectPictures[i], 0, (subjectStart + (i * subjectSizeY)) - map(sizeChanger, 0, sizeChangerSpeed, 0, (subjectStart + (i * subjectSizeY))), map(sizeChanger, 0, sizeChangerSpeed, width / 2, width), map(sizeChanger, 0, sizeChangerSpeed, subjectSizeY, subjectStart));
+            sizeChanger--;
+      }
+      if (chosenSubjectRight[i] && sizeChanger > 0){
+
+            //Scales and move the chosen box to the top and fit the screens width
+            image(subjectPictures[i + subjectAmount], width/2 - map(sizeChanger, 0, sizeChangerSpeed, 0, width/2), (subjectStart + (i * subjectSizeY)) - map(sizeChanger, 0, sizeChangerSpeed, 0, (subjectStart + (i * subjectSizeY))), map(sizeChanger, 0, sizeChangerSpeed, width / 2, width), map(sizeChanger, 0, sizeChangerSpeed, subjectSizeY, subjectStart));
+            sizeChanger--;
+      }
+      if (sizeChanger == 0) {
+        Reset(chosenSubjectLeft);
+        Reset(chosenSubjectRight);
+        resizeSubject = false;
+        pageNumber = 1;
+      }
+    }
+  }
+}

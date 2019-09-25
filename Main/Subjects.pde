@@ -3,7 +3,7 @@ This is everything concerning drawing the subject in all three stages
 */
 void subjectBoxes() {
       //Draws the boxes on the left side
-    if (pageNumber == 1) {
+    if (pageNumber == 1 || pageNumber == 2) {
       for (int i = 0; i < subjectAmount; i++) {
         if (!chosenSubjectLeft[i]) {
         image(subjectPictures[i], 0, subjectStart + (i * subjectSizeY),width/2,subjectSizeY);

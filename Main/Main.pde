@@ -33,9 +33,9 @@ void draw() {
       break;
     case 2 :
       background(background);
+      subjectBoxes();
       subjectPageThree();
       reloadButton();
-      subjectChosen = false;
       break;		
   }
 }
