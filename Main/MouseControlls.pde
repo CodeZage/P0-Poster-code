@@ -1,3 +1,6 @@
+/*
+This page is for everything concerning interaction and user-input
+*/
 void mouseDragged(){
   if (pageNumber == 0) {
     

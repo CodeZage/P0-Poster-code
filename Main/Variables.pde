@@ -6,7 +6,6 @@ int pageNumber = 0;
 
 //subjects
     boolean subjectChosen = false;
-    char subject;
     boolean[] chosenSubjectLeft;
     boolean[] chosenSubjectRight;
     PImage[] subjectPictures;

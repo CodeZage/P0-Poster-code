@@ -1,3 +1,6 @@
+/*
+This page is for everything concerning changes of page, in terms of resetting so the page to back to what it was before it was used.
+*/
 //GoBack button
 void reloadButton() {
   push();

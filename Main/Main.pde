@@ -1,3 +1,6 @@
+/*
+Main file, setup and draw step
+*/
 void setup() {
  size(600, 849);
  frameRate(60);
