@@ -4,6 +4,7 @@ This is everything concerning drawing the subject in all three stages
 void subjectBoxes() {
       //Draws the boxes on the left side
     if (pageNumber == 1 || pageNumber == 2) {
+      image(medialogiLogo,0,0);
       for (int i = 0; i < subjectAmount; i++) {
         if (!chosenSubjectLeft[i]) {
         image(subjectPictures[i], 0, subjectStart + (i * subjectSizeY),width/2,subjectSizeY);
@@ -53,7 +54,7 @@ void subjects() {
           push();
           fill(0);
           textSize(fontSize);
-          image(textImages[i],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown), 0, 0, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
+          image(textImages[i],0,textDropDown);
           pop();
           textDropDown += dropDownSpeed;
 
@@ -63,7 +64,7 @@ void subjects() {
           push();
           fill(0);
           textSize(fontSize);
-          image(textImages[i],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown), 0, 0, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
+          image(textImages[i],0,textDropDown);
           pop();
           pageNumber = 2;
         }
@@ -88,7 +89,7 @@ void subjects() {
           push();
           fill(0);
           textSize(fontSize);
-          image(textImages[i + subjectAmount],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown), 0, 0, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
+          image(textImages[i + subjectAmount],0,textDropDown);
           pop();
           textDropDown += dropDownSpeed;
 
@@ -98,7 +99,7 @@ void subjects() {
           push();
           fill(0);
           textSize(fontSize);
-          image(textImages[i + subjectAmount],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown), 0, 0, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
+          image(textImages[i + subjectAmount],0,textDropDown);
           pop();
           pageNumber = 2;
         }
@@ -116,14 +117,14 @@ void subjectPageThree() {
       push();
       fill(0);
       textSize(fontSize);
-      image(textImages[i],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown), 0, 0, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
+      image(textImages[i],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
       pop();
       image(subjectPictures[i], 0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));
     } else if (chosenSubjectRight[i] == true) {
       push();
       fill(0);
       textSize(fontSize);
-      image(textImages[i + subjectAmount],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown), 0, 0, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
+      image(textImages[i + subjectAmount],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
       pop();
       image(subjectPictures[i + subjectAmount], 0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));
     }  

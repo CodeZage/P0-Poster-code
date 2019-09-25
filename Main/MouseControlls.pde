@@ -19,6 +19,7 @@ void mouseDragged(){
 
 // her siger vi at time skal være 0 og radians er 0 grader når vi slipper, så den starter forfra
 void mouseReleased() {
+  drawArrow = false;
   radiant = radians(0);
   if(pageNumber == 0) {
       navButtonClicked = false;
@@ -86,5 +87,11 @@ void mouseClicked() {
           sizeChanger = 0;
       }
     }
+  }
+}
+
+void mousePressed() {
+  if (pageNumber == 0) {
+    drawArrow = true;
   }
 }

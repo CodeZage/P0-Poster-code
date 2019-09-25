@@ -5,8 +5,8 @@ void setup() {
   size(600, 849);
   frameRate(60);
   smooth(8);                     //sets anti-aliasing level to 8
-  frontPage = loadImage("frontpage.png");
-  medialogiLogo = loadImage("logo.png");
+  frontPage = loadImage("frontpage2.png");
+  medialogiLogo = loadImage("header.png");
   chosenSubjectLeft = new boolean[subjectAmount];
   chosenSubjectRight = new boolean[subjectAmount];
   subjectPictures = new PImage[subjectAmount * 2];
@@ -26,8 +26,11 @@ void draw() {
   switch (pageNumber) {
     case 0 :
       image(frontPage,0,0);
+      arrowAnimation(0);
+      if (drawArrow){
+        arrowAnimation(subjectStart + ((subjectAmount-1)* subjectSizeY));
+      }
       subjectBoxes();
-      arrowAnimation();
       dragMenu();
       Reset(chosenSubjectLeft);
       Reset(chosenSubjectRight);

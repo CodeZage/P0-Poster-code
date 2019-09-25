@@ -34,6 +34,7 @@ void reloadButton() {
   pop();
 }
 void dragMenu() {
+  image(medialogiLogo,0,navButtonY - subjectStart - ((subjectAmount) * subjectSizeY));
   push();
   stroke (highlight);
   fill (highlight);
@@ -41,15 +42,14 @@ void dragMenu() {
   line (widthStart, navButtonY, width, navButtonY);
   circle (width/2, navButtonY, navButtonRadius);
   pop();
-  if (navThreshold == false && navButtonY >= 120){
+  if (navThreshold == false && navButtonY >= 140){
     navButtonY -= 30;
-  } else if (navThreshold == false && navButtonY >= 100){
+  } else if (navThreshold == false && navButtonY >= 110){
     navButtonY -= 20;  
-  } else if (navThreshold == false && navButtonY >= 80){
+  } else if (navThreshold == false && navButtonY >= 90){
     navButtonY -= 10;
   } else {
     navThreshold = true; 
-    drawArrow = true;
   }
 }
 

@@ -5,10 +5,10 @@ This pages is for all the variables in the code
 int pageNumber = 0;
 
 //Arrow
-boolean drawArrow = true;
+boolean drawArrow = false;
+int frame = 0;
 PImage[] arrowArray;
 int arrowAnimationLength = 36;
-int frame = 0;
 float arrowratio = 1.7;
 
 //subjects
@@ -52,7 +52,7 @@ int highlightWeight = 5;
 int widthStart = 0;
 
 //Navigation button 
-int navButtonY = 50;
+int navButtonY = 80;
 int navButtonRadius = 75;
 
 //Checks 
