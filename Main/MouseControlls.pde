@@ -105,7 +105,7 @@ void mouseClicked() {
   } else if(pageNumber == 2){
 
     //checks if the mouse is clicked inside the left arrow and it is not the first subject
-    if (mouseX < 50 && mouseY < 300 && !chosenSubjectLeft[0]) {
+    if (mouseX < 50 && mouseY < subjectStart && !chosenSubjectLeft[0]) {
     
       // checks which subject is the chosen and then changes it to the previous subject
       for(int i = 0; i < subjectAmount; i++){
@@ -118,7 +118,7 @@ void mouseClicked() {
         }
       }
     //checks if the mouse is clicked inside the right arrow and it is not the last subject  
-    } else if (mouseX > width - 50 && mouseY < 300 && !chosenSubjectRight[2]) {
+    } else if (mouseX > width - 50 && mouseY < subjectStart && !chosenSubjectRight[2]) {
 
       // checks which subject is the chosen and then changes it to the next subject
       for(int i = 0; i < subjectAmount; i++){

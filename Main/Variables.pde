@@ -15,7 +15,8 @@ boolean drawArrow = false;
 int frame = 0;
 PImage[] arrowArray;
 int arrowAnimationLength = 36;
-float arrowratio = 1.7;
+float arrowRatio = 1.7;
+int arrowPause = 3;
 
 //subjects
     boolean subjectChosen = false;
