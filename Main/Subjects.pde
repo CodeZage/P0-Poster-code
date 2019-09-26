@@ -88,7 +88,6 @@ void subjects() {
           rect(0, textDropDown, width, subjectStart - textDropDownStart);
           push();
           fill(0);
-          textSize(fontSize);
           image(textImages[i + subjectAmount],0,textDropDown);
           pop();
           textDropDown += dropDownSpeed;
@@ -98,7 +97,6 @@ void subjects() {
           rect(0, textDropDown, width, subjectStart - textDropDownStart);
           push();
           fill(0);
-          textSize(fontSize);
           image(textImages[i + subjectAmount],0,textDropDown);
           pop();
           pageNumber = 2;
@@ -121,7 +119,6 @@ void subjectPageThree() {
       //draw the subject and the text accompanying it
       push();
       fill(0);
-      textSize(fontSize);
       image(textImages[i],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
       pop();
       image(subjectPictures[i], 0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));
@@ -146,7 +143,6 @@ void subjectPageThree() {
       //draw the subject and the text accompanying it
       push();
       fill(0);
-      textSize(fontSize);
       image(textImages[i + subjectAmount],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
       pop();
       image(subjectPictures[i + subjectAmount], 0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));

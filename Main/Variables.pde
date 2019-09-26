@@ -37,7 +37,6 @@ int arrowPause = 3;
         int sizeChangerSpeed = 15;
 
 //TextBox and Text
-int fontSize = 24;
 PImage[] textImages;
 int textDropDown = 0;
 int textDropDownStart = -150;
