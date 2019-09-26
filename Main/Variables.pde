@@ -10,7 +10,8 @@ PImage handGrab;
 PImage arrowNext;
 PImage arrowPrevious;
 int nextPreviousWidth = 50;
-color nextPreviousColor = color(172, 10, 86);
+color nextPreviousColor = color(0);//color(172, 10, 86);
+PImage hold;
 
 //Arrow
 boolean drawArrow = false;
@@ -56,7 +57,7 @@ int time;
 int loadingButtonWidth = 55;
 int loadingButtonHeight = 55;
 int loadingStroke = 5;
-int holdDownTime = 30;
+int holdDownTime = 20;
 
 //Navigation button 
 int navButtonY = 80;

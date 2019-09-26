@@ -11,8 +11,9 @@ void setup() {
   medialogiLogo = loadImage("header.png");
   handPoint = loadImage("pointer.png");
   handGrab = loadImage("grapper.png");
-  arrowNext = loadImage("next.png");
-  arrowPrevious = loadImage("previous.png");
+  arrowNext = loadImage("nextT.png");
+  arrowPrevious = loadImage("previousT.png");
+  hold = loadImage("hold.png");
 
   //Resizes the arrays to match the amount of subjects
   chosenSubjectLeft = new boolean[subjectAmount];
@@ -37,18 +38,25 @@ void setup() {
 void draw() {
   switch (pageNumber) {
     case 0 : // If it is the frontpage:
+      background(background);
+      push();
+      tint(255,255 - map(navButtonY, navButtonRadius, subjectStart + (subjectAmount* subjectSizeY), 0, 255));
       image(frontPage,0,0);
+      pop();
       arrowAnimation(0);
       if (drawArrow){
         arrowAnimation(subjectStart + ((subjectAmount-1)* subjectSizeY));
       }
+      push();
+      tint(background,map(navButtonY, navButtonRadius, subjectStart + (subjectAmount* subjectSizeY), 0, 255));
       subjectBoxes();
+      pop();
       dragMenu();
       Reset(chosenSubjectLeft);
       Reset(chosenSubjectRight);
       subjectChosen = false;
       break;	
-      
+
     case 1 : // If it is the subject choosing page:
       background(background);
       subjects();

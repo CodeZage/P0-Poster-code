@@ -12,6 +12,8 @@ void reloadButton() {
   strokeWeight (highlightWeight);
   line (0, subjectStart + (subjectAmount* subjectSizeY), width, subjectStart + (subjectAmount* subjectSizeY));
   pop();
+  imageMode(CENTER);
+  image(hold, width/2, subjectStart + (subjectAmount* subjectSizeY),navButtonRadius / 2,navButtonRadius / 2);
   
   
   // if mousex and mousey is equal to button coordinates and mouse is pressed the animation starts with time + 1 

@@ -154,12 +154,12 @@ void subjectPageThree() {
       // draws the arrows the change the pages
         push();
         for (int c = 0; c < nextPreviousWidth; c++) {
-            stroke(nextPreviousColor, map(c, 0, nextPreviousWidth, 255, 0));
+            stroke(nextPreviousColor, map(c, 0, nextPreviousWidth, 255, 0) / 2);
             line(c, 0, c, subjectStart);
           }
         if (!chosenSubjectRight[2]) {
           for (int c = 0; c < nextPreviousWidth; c++) {
-            stroke(nextPreviousColor, map(c, 0, nextPreviousWidth, 255, 0));
+            stroke(nextPreviousColor, map(c, 0, nextPreviousWidth, 255, 0) /2);
             line(width - c, 0,width - c, subjectStart);
           }
           image(arrowNext, width, subjectStart/3, -nextPreviousWidth, subjectStart/3);
