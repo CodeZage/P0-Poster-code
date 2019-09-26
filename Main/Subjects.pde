@@ -128,15 +128,19 @@ void subjectPageThree() {
 
       // draws the arrows the change the pages
         push();
-        noStroke();
-        fill(255,100);
         if (!chosenSubjectLeft[0]) {
-          rect(0, 0, 50, 300);
-          image(arrowPrevious, 0, 100, 50, 100);
+          for (int c = 0; c < nextPreviousWidth; c++) {
+            stroke(nextPreviousColor, map(c, 0, nextPreviousWidth, 255, 0));
+            line(c, 0, c, subjectStart);
+          }
+          image(arrowPrevious, 0, subjectStart/3, nextPreviousWidth, subjectStart/3);
         }
-          rect(width, 0, -50, 300);
+          for (int c = 0; c < nextPreviousWidth; c++) {
+            stroke(nextPreviousColor, map(c, 0, nextPreviousWidth, 255, 0));
+            line(width - c, 0,width - c, subjectStart);
+          }
           pop();
-          image(arrowNext, width, 100, -50, 100);
+          image(arrowNext, width, subjectStart/3, -nextPreviousWidth, subjectStart/3);
 
     } else if (chosenSubjectRight[i] == true) {
       //draw the subject and the text accompanying it
@@ -149,15 +153,19 @@ void subjectPageThree() {
 
       // draws the arrows the change the pages
         push();
-        noStroke();
-        fill(255,100);
-        rect(0, 0, 50, 300);
+        for (int c = 0; c < nextPreviousWidth; c++) {
+            stroke(nextPreviousColor, map(c, 0, nextPreviousWidth, 255, 0));
+            line(c, 0, c, subjectStart);
+          }
         if (!chosenSubjectRight[2]) {
-          rect(width, 0, -50, 300);
-          image(arrowNext, width, 100, -50, 100);
+          for (int c = 0; c < nextPreviousWidth; c++) {
+            stroke(nextPreviousColor, map(c, 0, nextPreviousWidth, 255, 0));
+            line(width - c, 0,width - c, subjectStart);
+          }
+          image(arrowNext, width, subjectStart/3, -nextPreviousWidth, subjectStart/3);
         }
         pop();
-        image(arrowPrevious, 0, 100, 50, 100);
+        image(arrowPrevious, 0, subjectStart/3, nextPreviousWidth, subjectStart/3);
     }  
   }
 }

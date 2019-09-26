@@ -9,6 +9,8 @@ PImage handPoint;
 PImage handGrab;
 PImage arrowNext;
 PImage arrowPrevious;
+int nextPreviousWidth = 50;
+color nextPreviousColor = color(172, 10, 86);
 
 //Arrow
 boolean drawArrow = false;
