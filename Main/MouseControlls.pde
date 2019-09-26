@@ -19,6 +19,13 @@ void mouseDragged(){
   }
 }
 
+// Makes sures that the dragable menu stays on the mouse when you stop dragging but is still pressing
+void mousePressed() {
+  if (navButtonClicked) {
+    navButtonY = mouseY;
+  }
+}
+
 // her siger vi at time skal være 0 og radians er 0 grader når vi slipper, så den starter forfra
 void mouseReleased() {
   radiant = radians(0);

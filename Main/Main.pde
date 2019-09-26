@@ -41,14 +41,20 @@ void draw() {
   switch (pageNumber) {
     case 0 : // If it is the frontpage:
       background(background);
+
+      // Draw frontPage picture and make it fade when you drag down the menu
       push();
       tint(255,255 - map(navButtonY, navButtonRadius, subjectStart + (subjectAmount* subjectSizeY), 0, 255));
       image(frontPage,0,0);
       pop();
+
+      // Arrow animation
       arrowAnimation(0);
       if (navButtonClicked == true){
         arrowAnimation(subjectStart + ((subjectAmount-1)* subjectSizeY));
       }
+
+      // Draw the subjectBoxes and makes them follow the menu down
       subjectBoxes();
       push();
       noStroke();
@@ -56,6 +62,8 @@ void draw() {
       rect(0, 0, width, navButtonRadius);
       pop();
       dragMenu();
+
+      //resets the chosensubject
       Reset(chosenSubjectLeft);
       Reset(chosenSubjectRight);
       subjectChosen = false;

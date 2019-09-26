@@ -64,6 +64,8 @@ void dragMenu() {
     }
   pop();
   pop();
+
+  //pulls the dragmenu back to start if it has not been dragged far enough and it is no longer pressed
   if (navThreshold == false && navButtonY >= 135){
     navButtonY -= 30;
   } else if (navThreshold == false && navButtonY >= 105){
@@ -75,10 +77,10 @@ void dragMenu() {
   }
 }
 
+//Resets the subject if you go back from any of the information pages
 void subjectResetter() {
   if (resizeSubject == true) {
     background(background);
-    println("sizeChanger: "+sizeChanger);
     for (int i = 0; i < subjectAmount; i++) {
     subjectBoxes();
       if (chosenSubjectLeft[i] && sizeChanger > 0){
@@ -94,6 +96,7 @@ void subjectResetter() {
           sizeChanger--;
       }
       if (sizeChanger == 0) {
+        //resets the chosen subject
         Reset(chosenSubjectLeft);
         Reset(chosenSubjectRight);
         resizeSubject = false;
@@ -102,6 +105,8 @@ void subjectResetter() {
     }
   }
 }
+
+// Checks if the person has been idle for more than the designated amount of time, and if so go back to the frontpage
 void idle() {
   if (idleTimer == resetTime && pageNumber != 0) {
     pageNumber = 0;
@@ -111,6 +116,7 @@ void idle() {
     idleTimer ++;
   }
 
+  //checks that if the poster has been touch in anyway it will reset the timer
   if (mousePressed) {
     idleTimer = 0;
   }
