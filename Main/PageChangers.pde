@@ -41,6 +41,14 @@ void dragMenu() {
   strokeWeight (highlightWeight);
   line (widthStart, navButtonY, width, navButtonY);
   circle (width/2, navButtonY, navButtonRadius);
+  push();
+    imageMode(CENTER);
+    if (mousePressed) {
+      image(handGrab, width/2, navButtonY, navButtonRadius/2, navButtonRadius/3);
+    } else {
+      image(handPoint, width/2, navButtonY, navButtonRadius/2, navButtonRadius/2);
+    }
+  pop();
   pop();
   if (navThreshold == false && navButtonY >= 140){
     navButtonY -= 30;

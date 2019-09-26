@@ -4,6 +4,12 @@ This pages is for all the variables in the code
 //pageChanger
 int pageNumber = 0;
 
+//Indicators
+PImage handPoint;
+PImage handGrab;
+PImage arrowNext;
+PImage arrowPrevious;
+
 //Arrow
 boolean drawArrow = false;
 int frame = 0;

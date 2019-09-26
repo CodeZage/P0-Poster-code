@@ -87,6 +87,29 @@ void mouseClicked() {
           sizeChanger = 0;
       }
     }
+  } else if(pageNumber == 2){
+    if (mouseX < 50 && mouseY < 300 && !chosenSubjectLeft[0]) {
+    for(int i = 0; i < subjectAmount; i++){
+      if(chosenSubjectLeft[i] == true) {
+        chosenSubjectRight[i-1] = true;
+        chosenSubjectLeft[i] = false;
+      } else if (chosenSubjectRight[i] == true) {
+        chosenSubjectLeft[i] = true;
+        chosenSubjectRight[i] = false;
+      }
+    }
+    } else if (mouseX > width - 50 && mouseY < 300 && !chosenSubjectRight[2]) {
+      for(int i = 0; i < subjectAmount; i++){
+      if(chosenSubjectLeft[i] == true) {
+        chosenSubjectRight[i] = true;
+        chosenSubjectLeft[i] = false;
+      } else if (chosenSubjectRight[i] == true) {
+        chosenSubjectLeft[i+1] = true;
+        chosenSubjectRight[i] = false;
+        break;
+      }
+    }
+    }
   }
 }
 

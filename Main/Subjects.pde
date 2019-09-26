@@ -120,6 +120,16 @@ void subjectPageThree() {
       image(textImages[i],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
       pop();
       image(subjectPictures[i], 0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));
+      push();
+      noStroke();
+      fill(255,100);
+      if (!chosenSubjectLeft[0]) {
+        rect(0, 0, 50, 300);
+        image(arrowPrevious, 0, 100, 50, 100);
+      }
+        rect(width, 0, -50, 300);
+        pop();
+        image(arrowNext, width, 100, -50, 100);
     } else if (chosenSubjectRight[i] == true) {
       push();
       fill(0);
@@ -127,6 +137,16 @@ void subjectPageThree() {
       image(textImages[i + subjectAmount],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
       pop();
       image(subjectPictures[i + subjectAmount], 0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));
+        push();
+        noStroke();
+        fill(255,100);
+        rect(0, 0, 50, 300);
+        if (!chosenSubjectRight[2]) {
+          rect(width, 0, -50, 300);
+          image(arrowNext, width, 100, -50, 100);
+        }
+        pop();
+        image(arrowPrevious, 0, 100, 50, 100);
     }  
   }
 }

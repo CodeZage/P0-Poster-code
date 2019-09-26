@@ -7,6 +7,11 @@ void setup() {
   smooth(8);                     //sets anti-aliasing level to 8
   frontPage = loadImage("frontpage2.png");
   medialogiLogo = loadImage("header.png");
+  handPoint = loadImage("pointer.png");
+  handGrab = loadImage("grapper.png");
+  arrowNext = loadImage("next.png");
+  arrowPrevious = loadImage("previous.png");
+
   chosenSubjectLeft = new boolean[subjectAmount];
   chosenSubjectRight = new boolean[subjectAmount];
   subjectPictures = new PImage[subjectAmount * 2];
