@@ -52,12 +52,12 @@ void dragMenu() {
     }
   pop();
   pop();
-  if (navThreshold == false && navButtonY >= 140){
+  if (navThreshold == false && navButtonY >= 135){
     navButtonY -= 30;
-  } else if (navThreshold == false && navButtonY >= 110){
+  } else if (navThreshold == false && navButtonY >= 105){
     navButtonY -= 20;  
-  } else if (navThreshold == false && navButtonY >= 90){
-    navButtonY -= 10;
+  } else if (navThreshold == false && navButtonY >= 85){
+    navButtonY = navButtonRadius;
   } else {
     navThreshold = true; 
   }

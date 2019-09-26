@@ -28,7 +28,7 @@ void mouseReleased() {
   // checks if the dragable menu is dragged past the turning point, and if so either goes back to or goes all the way down and changes pages
   if(pageNumber == 0) {
       navButtonClicked = false;
-    if (navButtonY < subjectStart + ((subjectAmount-2) + subjectSizeY)){
+    if (navButtonY < subjectStart + subjectSizeY){
       navThreshold = false;
     } else {
       navButtonY = subjectStart + ((subjectAmount-1)* subjectSizeY);

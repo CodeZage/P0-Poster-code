@@ -60,7 +60,7 @@ int loadingStroke = 5;
 int holdDownTime = 20;
 
 //Navigation button 
-int navButtonY = 80;
+int navButtonY = 75;
 int navButtonRadius = 75;
 
 //Checks for the navButton 

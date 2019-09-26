@@ -47,9 +47,11 @@ void draw() {
       if (drawArrow){
         arrowAnimation(subjectStart + ((subjectAmount-1)* subjectSizeY));
       }
-      push();
-      tint(background,map(navButtonY, navButtonRadius, subjectStart + (subjectAmount* subjectSizeY), 0, 255));
       subjectBoxes();
+      push();
+      noStroke();
+      fill(background,255 - map(navButtonY, navButtonRadius, subjectStart, 0, 255));
+      rect(0, 0, width, navButtonRadius);
       pop();
       dragMenu();
       Reset(chosenSubjectLeft);
