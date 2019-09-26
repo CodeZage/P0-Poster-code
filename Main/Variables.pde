@@ -3,6 +3,8 @@ This pages is for all the variables in the code
 */
 //pageChanger
 int pageNumber = 0;
+int idleTimer = 0;
+int resetTime = 18000;
 
 //Indicators
 PImage handPoint;

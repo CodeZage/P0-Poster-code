@@ -88,3 +88,16 @@ void subjectResetter() {
     }
   }
 }
+void idle() {
+  if (idleTimer == resetTime && pageNumber != 0) {
+    pageNumber = 0;
+  } else if (pageNumber == 0) {
+    idleTimer = 0;
+  } else {
+    idleTimer ++;
+  }
+
+  if (mousePressed) {
+    idleTimer = 0;
+  }
+}

@@ -36,6 +36,8 @@ void setup() {
 
 //draw Step
 void draw() {
+  idle();
+  println("idleTimer: "+idleTimer);
   switch (pageNumber) {
     case 0 : // If it is the frontpage:
       background(background);
