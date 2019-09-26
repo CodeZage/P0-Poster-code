@@ -110,33 +110,44 @@ void subjects() {
     }
 }
 
+// function to draw the subject information page
 void subjectPageThree() {
+  // text box in the background
   rect(0, textDropDown, width, subjectStart - textDropDownStart);
+
+  // Checks which subject to draw
   for(int i = 0; i < subjectAmount; i++){
     if(chosenSubjectLeft[i] == true) {
+      //draw the subject and the text accompanying it
       push();
       fill(0);
       textSize(fontSize);
       image(textImages[i],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
       pop();
       image(subjectPictures[i], 0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));
-      push();
-      noStroke();
-      fill(255,100);
-      if (!chosenSubjectLeft[0]) {
-        rect(0, 0, 50, 300);
-        image(arrowPrevious, 0, 100, 50, 100);
-      }
-        rect(width, 0, -50, 300);
-        pop();
-        image(arrowNext, width, 100, -50, 100);
+
+      // draws the arrows the change the pages
+        push();
+        noStroke();
+        fill(255,100);
+        if (!chosenSubjectLeft[0]) {
+          rect(0, 0, 50, 300);
+          image(arrowPrevious, 0, 100, 50, 100);
+        }
+          rect(width, 0, -50, 300);
+          pop();
+          image(arrowNext, width, 100, -50, 100);
+
     } else if (chosenSubjectRight[i] == true) {
+      //draw the subject and the text accompanying it
       push();
       fill(0);
       textSize(fontSize);
       image(textImages[i + subjectAmount],0,textDropDown, width, (subjectStart + (subjectAmount* subjectSizeY) - textDropDown));
       pop();
       image(subjectPictures[i + subjectAmount], 0,0,map(sizeChanger,0,sizeChangerSpeed,width/2,width), map(sizeChanger,0,sizeChangerSpeed,subjectSizeY,subjectStart));
+
+      // draws the arrows the change the pages
         push();
         noStroke();
         fill(255,100);

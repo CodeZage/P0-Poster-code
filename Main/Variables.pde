@@ -42,6 +42,8 @@ int dropDownSpeed = 10;
 color highlight = (#ac0a56);
 color loadingColor = 255;
 color background = (#efebe2);
+int highlightWeight = 5;
+int widthStart = 0;
 PImage frontPage;
 PImage medialogiLogo;
 
@@ -53,14 +55,10 @@ int loadingButtonHeight = 55;
 int loadingStroke = 5;
 int holdDownTime = 30;
 
-//Style 
-int highlightWeight = 5;
-int widthStart = 0;
-
 //Navigation button 
 int navButtonY = 80;
 int navButtonRadius = 75;
 
-//Checks 
+//Checks for the navButton 
 boolean navButtonClicked = false; 
 boolean navThreshold = true;

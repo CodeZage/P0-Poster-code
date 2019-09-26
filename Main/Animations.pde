@@ -1,3 +1,6 @@
+/*
+This is the arrow animation
+*/
 void arrowAnimation(int position) {
 
     if (frame < arrowArray.length * 2) {
