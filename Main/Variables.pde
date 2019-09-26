@@ -16,7 +16,6 @@ color nextPreviousColor = color(0);//color(172, 10, 86);
 PImage hold;
 
 //Arrow
-boolean drawArrow = false;
 int frame = 0;
 PImage[] arrowArray;
 int arrowAnimationLength = 36;

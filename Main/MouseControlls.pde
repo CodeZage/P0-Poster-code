@@ -14,7 +14,6 @@ void mouseDragged(){
 
           // makes the navButton follow the mouse and stops drawing the arrows
           navButtonClicked = true; 
-          drawArrow = false;
           navButtonY = mouseY;
     } 
   }
@@ -22,7 +21,6 @@ void mouseDragged(){
 
 // her siger vi at time skal være 0 og radians er 0 grader når vi slipper, så den starter forfra
 void mouseReleased() {
-  drawArrow = false;
   radiant = radians(0);
 
   // checks if the dragable menu is dragged past the turning point, and if so either goes back to or goes all the way down and changes pages
@@ -132,12 +130,5 @@ void mouseClicked() {
         }
       }
     }
-  }
-}
-
-// indicator to when to draw the arrow that indicates where to drag to
-void mousePressed() {
-  if (pageNumber == 0) {
-    drawArrow = true;
   }
 }

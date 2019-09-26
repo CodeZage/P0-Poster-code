@@ -46,7 +46,7 @@ void draw() {
       image(frontPage,0,0);
       pop();
       arrowAnimation(0);
-      if (drawArrow){
+      if (navButtonClicked == true){
         arrowAnimation(subjectStart + ((subjectAmount-1)* subjectSizeY));
       }
       subjectBoxes();
