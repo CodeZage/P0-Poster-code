@@ -53,7 +53,6 @@ void subjects() {
           rect(0, textDropDown, width, subjectStart - textDropDownStart);
           push();
           fill(0);
-          textSize(fontSize);
           image(textImages[i],0,textDropDown);
           pop();
           textDropDown += dropDownSpeed;
@@ -63,7 +62,6 @@ void subjects() {
           rect(0, textDropDown, width, subjectStart - textDropDownStart);
           push();
           fill(0);
-          textSize(fontSize);
           image(textImages[i],0,textDropDown);
           pop();
           pageNumber = 2;
