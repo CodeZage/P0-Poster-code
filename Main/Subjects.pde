@@ -1,5 +1,5 @@
 /*
-This is everything concerning drawing the subject in all three stages
+This is everything concerning drawing the subject in all three stages123
 */
 void subjectBoxes() {
       //Draws the boxes on the left side
