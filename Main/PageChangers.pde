@@ -66,7 +66,7 @@ void dragMenu() {
   pop();
 
   //pulls the dragmenu back to start if it has not been dragged far enough and it is no longer pressed
-  if (navThreshold == false && navButtonY >= 135){
+  if (navThreshold == false && navButtonY >= 135 && !mousePressed){
     navButtonY -= 30;
   } else if (navThreshold == false && navButtonY >= 105){
     navButtonY -= 20;  
