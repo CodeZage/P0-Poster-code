@@ -21,8 +21,14 @@ void mouseDragged(){
 
 // Makes sures that the dragable menu stays on the mouse when you stop dragging but is still pressing
 void mousePressed() {
-  if (navButtonClicked) {
-    navButtonY = mouseY;
+    if ((mouseX > width/2 - navButtonRadius /2 && 
+        mouseX < width/2 + navButtonRadius /2 && 
+        mouseY < navButtonY + navButtonRadius /2 && 
+        mouseY < navButtonY + navButtonRadius /2 || 
+        navButtonClicked == true) &&
+        mouseY <= subjectStart + (subjectAmount* subjectSizeY) && mouseY > navButtonRadius){
+          navButtonClicked = true; 
+          navButtonY = mouseY;
   }
 }
 
